@@ -2,4 +2,4 @@
 **/.ipynb_checkpoints/
 
 # Ignore all .pkl files, which we will use to store our models. PROVISIONAL
-*.pkl
+#*.pkl
