@@ -12,7 +12,20 @@ with open("../notebooks/models/ada_boost_best_model.pkl", "rb") as file:
 with open("../notebooks/models/standard_scaler.pkl", "rb") as file:
     st_scaler = pickle.load(file)
 
-st.title("Forest Cover Type Prediction")            
+
+st.title("Forest Cover Type Prediction")
+
+st.markdown( # Add a green colour background to the app
+    """
+    <style>
+    .stApp {
+        background-color: #e8f5e9; /* Light green */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+         
             
 st.markdown("""
 This app, the final stage of this Machine Learning project, is designed
@@ -74,14 +87,31 @@ if submitted:
     # Predict the Tree Cover Type
     prediction = ada.predict(data)[0] # predict devuelve un array
     
-cover_types = {
-            1: "Spruce/Fir",
-            2: "Lodgepole Pine",
-            3: "Ponderosa Pine",
-            4: "Cottonwood/Willow",
-            5: "Aspen",
-            6: "Douglas-fir",
-            7: "Krummholz"
-        }
+# cover_types = { # Antiguo diccionario, cuando la app no enseñaba imágenes
+#             1: "Spruce/Fir",
+#             2: "Lodgepole Pine",
+#             3: "Ponderosa Pine",
+#             4: "Cottonwood/Willow",
+#             5: "Aspen",
+#             6: "Douglas-fir",
+#             7: "Krummholz"
+#         }
 
-st.success(f"Predicted Forest Cover Type: **{cover_types.get(prediction, 'Unknown')}**")
+# st.success(f"Predicted Forest Cover Type: **{cover_types.get(prediction, 'Unknown')}**")
+
+# Map predictions to names and images
+cover_types = {
+    1: ("Spruce/Fir", "../img/spruce_fir.jpg"),
+    2: ("Lodgepole Pine", "../img/lodgepole_pine.jpg"),
+    3: ("Ponderosa Pine", "../img/pinus_ponderosa.jpeg"),
+    4: ("Cottonwood/Willow", "../img/cottonwood_willow.jpg"),
+    5: ("Aspen", "../img/aspen.jpg"),
+    6: ("Douglas-fir", "../img/douglas_fir.jpg"),
+    7: ("Krummholz", "../img/krummholz.jpg")
+}
+
+label, img_path = cover_types.get(prediction, ("Unknown", None))
+st.success(f"Predicted Forest Cover Type: **{label}**")
+
+if img_path:
+    st.image(img_path, caption=label, use_column_width=True)
