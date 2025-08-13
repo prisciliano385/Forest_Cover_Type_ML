@@ -3,7 +3,7 @@
 In this project 4 different supervised machine learning models were used to predict forest cover types in 4 different forest belonging to the **Roosevelt National Forest** in Colorado, USA.
 
 The dataset used in this project can be accessed both in [Kaggle](https://www.kaggle.com/datasets/uciml/forest-cover-type-dataset?resource=download) and University of California, Irvine's ML [Repository](https://archive.ics.uci.edu/dataset/31/covertype). The dataset comes from *Comparative accuracies of artificial neural networks and discriminant analysis in predicting forest cover types from cartographic variables*, an article published in *Computers and Electronics in Agriculture*.
-
+![forest](./img/Roosevelt_National_Forest.JPG)
 ## Objectives:
 This project tries to acomplish two things:
 - Comparing different supervised machine learning algorithms for classification in order to study the performance of each model and check which model best suits a classification problem in a relatively complex dataset.
