@@ -6,31 +6,34 @@ The dataset used in this project can be accessed both in [Kaggle](https://www.ka
 
 <img style="display: block; margin: auto;" src="./img/Roosevelt_National_Forest.JPG"/>
 
-## Objectives:
-This project tries to acomplish two things:
-- Comparing different supervised machine learning algorithms for classification in order to study the performance of each model and check which model best suits a classification problem in a relatively complex dataset.
-- Surpass the prediction capabilities of an Artificial Neural Network used in the article.
+## 📌 Project Overview
+We compare several supervised classification algorithms to evaluate their performance on a complex, high-dimensional dataset.
+The main goals were:
+- **Performance comparison**: Identify which classical ML algorithm performs best on this dataset.
+- **Surpass the accuracy** of the Artificial Neural Network used in the original study.
+- **Dimensionality analysis**: Explore the impact of removing categorical variables and applying PCA.
 
-## Contents/Structure:
-The structure of the repository is the following (only directories with useful files will be described, the rest are there for support purposes):
+## 📂 Repository Structure:
+
+The repository is organized as follows (only directories with relevant files are listed; others serve support purposes):
 ```
 notebooks/
-|---data_cleansing_&_EDA.ipynb  # A first glimpse to the dataset and the distribution and properties of some variables, including the target variable.
-|---models.ipynb                # Notebook where the different models (*KNN, Decision Trees, Random Forest and AdaBoost* classifieres) used in this project are compared and their properties analyzed. In addition, an unsupervised learning algorithm is also used (*PCA analysis*) for dimensionality reduction, and the effects of neglecting some of the categorical features are analyzed.
+|---data_cleansing_&_EDA.ipynb  # Initial exploration of the dataset, including distribution and properties of key variables and the target variable.
+|---models.ipynb                # Comparison and analysis of models (KNN, Decision Trees, Random Forest, AdaBoost). Also includes PCA for dimensionality reduction and an analysis of the effect of removing some categorical features.
 data/
 |---raw/
-    |---covtype.csv              # Data stored in CSV format.
-    |---covtype.info             # Information about the data. A shorter version of the information that can be found in the article.
+    |---covtype.csv              # Dataset in CSV format.
+    |---covtype.info             # Summary of the dataset information from the paper.
 app/
-|---app.py                       # An app made using streamlit to provide a visual interface by which introduce the necessary data to predict the forest cover types of new plot of land.
+|---app.py                       # Streamlit app providing a visual interface to input data and predict the forest cover type of a new plot of land.
 ```
 
 ## Results and conclusions:
 
-1. *K-Nearest Neighbours* is not suited for highly dimensional datasets and offers poor results.
-2. *Decision Tree classifiers* offer good metrics with low computational cost and show better results than the *Gaussian Discriminant Analysis* model.
-3. The two ensemble models used, *Random Forest* and *Ada Boost*, show **better results than the *Artificial Neural Network* used by the authors**! This is quite impressive, and shows that under certain circunstances, *classical* machine learning algorithms can match or even surpass the results of Neural Networks!
-4. Dimensionality reduction has not been able to improve the metrics in any way.
+1. K-Nearest Neighbours performs poorly on highly dimensional datasets.
+2. Decision Tree classifiers achieve good metrics with low computational cost and outperform the Gaussian Discriminant Analysis model.
+3. The two ensemble models used, Random Forest and AdaBoost, achieved better results than the Artificial Neural Network from the original study. This shows that, under certain circumstances, classical machine learning algorithms can match or even surpass neural networks.
+4. Dimensionality reduction (PCA) did not improve performance.
 
 ## Dependencies:
 
